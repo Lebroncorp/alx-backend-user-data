@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Module for session expiration
+"""Module for session expiration
 """
 
 
@@ -32,8 +31,7 @@ class SessionExpAuth(SessionAuth):
         self.session_duration = int(os.environ.get("SESSION_DURATION", 0))
 
     def create_session(self, user_id: int) -> str:
-        """
-        Creates a new session for a user and assigns a session ID.
+        """Creates a new session for a user and assigns a session ID.
 
         The session ID is stored in the user_id_by_session_id dictionary with
         the user_id and creation time as values.
@@ -64,8 +62,7 @@ class SessionExpAuth(SessionAuth):
         return sessn_id
 
     def user_id_for_session_id(self, session_id: str) -> int:
-        """
-        Gets the user_id associated with a session ID.
+        """Gets the user_id associated with a session ID.
 
         The session is considered valid if it was created within the
         session_duration time.

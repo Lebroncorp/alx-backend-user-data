@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-Module for session database authentication
+"""Module for session database authentication
 """
 from datetime import datetime, timedelta
 
@@ -10,13 +9,11 @@ from .session_exp_auth import SessionExpAuth
 
 
 class SessionDBAuth(SessionExpAuth):
-    """
-    Session authentication class with database storage & expiration support.
+    """Session authentication class with database storage & expiration support.
     """
 
     def create_session(self, user_id: str) -> str:
-        """
-        Creates and stores a session id for the user.
+        """Creates and stores a session id for the user.
 
         Args:
             user_id (str): User id to be associated with the session.
@@ -39,8 +36,7 @@ class SessionDBAuth(SessionExpAuth):
             return session_id
 
     def user_id_for_session_id(self, session_id: str) -> str:
-        """
-        Retrieves the user id of the user associated with given session id.
+        """Retrieves the user id of the user associated with given session id.
 
         Args:
             session_id (str): Session id.
@@ -68,8 +64,7 @@ class SessionDBAuth(SessionExpAuth):
         return sessions[0].user_id
 
     def destroy_session(self, request=None) -> bool:
-        """
-        Destroys an authenticated session.
+        """Destroys an authenticated session.
 
         Args:
             request (Request): Request object.

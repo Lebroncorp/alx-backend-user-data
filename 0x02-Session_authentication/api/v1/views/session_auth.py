@@ -11,9 +11,7 @@ from models.user import User
 
 @app_views.route('/auth_session/login', methods=["POST"], strict_slashes=False)
 def login() -> str:
-    """
-    session login view for /auth_session/login
-    """
+    """session login view for /auth_session/login """
     email = request.form.get('email')
     if not email:
         return jsonify({"error": "email missing"}), 400
@@ -37,9 +35,7 @@ def login() -> str:
 @app_views.route('/auth_session/logout', methods=['DELETE'],
                  strict_slashes=False)
 def logout() -> str:
-    """
-    session logout view for route /auth_session/logout
-    """
+    """session logout view for route /auth_session/logout"""
     from api.v1.app import auth
     if not auth.destroy_session(request):
         abort(404)

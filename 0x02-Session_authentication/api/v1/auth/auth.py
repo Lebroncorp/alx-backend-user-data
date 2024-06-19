@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""
-authentication template module
+"""authentication template module
 """
 
 from os import getenv
@@ -24,22 +23,17 @@ class Auth:
         return True
 
     def authorization_header(self, request=None) -> str:
-        """
-        this function add authorization header
-        """
+        """this function add authorization header"""
         if request is not None:
             return request.headers.get('Authorization', None)
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """
-        this method gets the current user
-        """
+        """this method gets the current user"""
         return None
 
     def session_cookie(self, request=None):
-        """
-        this function returns cookie value from a request
+        """this function returns cookie value from a request
         """
         if request is None:
             return None

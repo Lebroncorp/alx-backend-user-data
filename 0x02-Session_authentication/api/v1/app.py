@@ -31,33 +31,28 @@ elif getenv("AUTH_TYPE", None) == "session_auth":
 
 @app.errorhandler(401)
 def unauthorized(error) -> str:
-    """
-    Unauthorized handler
+    """Unauthorized handler
     """
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
 def forbidden(error) -> str:
-    """
-    Forbidden Error handler
+    """ Forbidden Error handler
     """
     return jsonify({"error": "Forbidden"}), 403
 
 
 @app.errorhandler(404)
 def not_found(error) -> str:
-    """
-    Not found handler
+    """ Not found handler
     """
     return jsonify({"error": "Not found"}), 404
 
 
 @app.before_request
 def before_request() -> str:
-    """
-    before request handler
-    """
+    """before request handler"""
     if auth is None:
         return
     excluded_paths = ['/api/v1/auth_session/login/',
